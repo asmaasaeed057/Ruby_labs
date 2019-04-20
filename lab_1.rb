@@ -1,7 +1,7 @@
 class ComplexNumber
     @@countAdd = 0
     @@countMul = 0
-
+@hash = {countAdd:0, countMul:0}
     attr_accessor :real , :imag , :countAdd , :countMul
 
     def initialize(real , imag)
@@ -17,7 +17,7 @@ class ComplexNumber
     def *(cn2)
         realpart=(@real * cn2.real - @imag * cn2.imag)
         imagpart=(@real * cn2.imag + @imag * cn2.real)
-        self.countMul=@@countMul +=1
+        @@hash[:countMul] +=1
         ComplexNumber.new(realpart,imagpart)
     end
 
